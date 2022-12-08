@@ -22,6 +22,16 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+#### Or run production build:
+
+```bash
+npm run prod
+# or
+yarn prod
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 #### How did you decide which technologies to use as part of your solution?
 
 Given small amount of time I decided to go with technology that I'm most comfortable with - Next.js.

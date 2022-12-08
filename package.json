@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "json-server --port 3001 --watch api.json & next dev",
+    "dev": "npm run server & next dev",
+    "prod": "NEXT_PUBLIC_API_PROXY_URL=http://localhost:3001 next build && next start & npm run server",
+    "server": "json-server --port 3001 --watch api.json",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

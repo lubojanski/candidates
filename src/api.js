@@ -8,14 +8,14 @@ const options = {
 
 export const getCandidates = async () => {
   const candidatesRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_PROXY_URL}/api/candidates`,
+    `${process.env.NEXT_PUBLIC_API_PROXY_URL}/candidates`,
     options
   );
   return candidatesRes.json();
 };
 export const getQuestions = async () => {
   const questionsRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/questions`,
+    `${process.env.NEXT_PUBLIC_API_PROXY_URL}/questions`,
     options
   );
   return questionsRes.json();
@@ -24,7 +24,7 @@ export const getQuestions = async () => {
 export const getApplication = async (applicationId) => {
   if (applicationId) {
     const applicationRes = await fetch(
-      `${process.env.NEXT_PUBLIC_API_PROXY_URL}/api/applications/${applicationId}`,
+      `${process.env.NEXT_PUBLIC_API_PROXY_URL}/applications/${applicationId}`,
       options
     );
     return applicationRes.json();
@@ -35,7 +35,7 @@ export const getApplication = async (applicationId) => {
 export const addComment = async ({ applicationId, questionId, comment }) => {
   try {
     const applicationToUpdateRes = await fetch(
-      `${process.env.NEXT_PUBLIC_API_PROXY_URL}/api/applications/${applicationId}`,
+      `${process.env.NEXT_PUBLIC_API_PROXY_URL}/applications/${applicationId}`,
       options
     );
     const applicationToUpdate = await applicationToUpdateRes.json();
@@ -50,7 +50,7 @@ export const addComment = async ({ applicationId, questionId, comment }) => {
     };
 
     const updateRes = await fetch(
-      `${process.env.NEXT_PUBLIC_API_PROXY_URL}/api/applications/${applicationId}`,
+      `${process.env.NEXT_PUBLIC_API_PROXY_URL}/applications/${applicationId}`,
       {
         ...options,
         method: "PATCH",
