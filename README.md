@@ -8,7 +8,7 @@ npm i
 yarn
 ```
 
-#### Then, create a .env file that should be a copy of ./example.env file
+#### Then, create an .env file that should be a copy of ./example.env file
 
 ( I'm not saying that it should be the same as example.env.. but it should :) I'm just not comfortable with saving .env to repo )
 
