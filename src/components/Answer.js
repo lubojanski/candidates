@@ -7,10 +7,10 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { addComment } from "../api";
 
-const Application = ({ video, questions, application }) => {
+const Answer = ({ video, questions, application }) => {
   const [comment, setComment] = useState(video.comments);
   const [showSaveButton, setShowSaveButton] = useState(false);
 
@@ -18,7 +18,7 @@ const Application = ({ video, questions, application }) => {
     setComment(e.target.value);
   };
 
-  const saveComment = async () => {
+  const saveComment = /*   */ async () => {
     const res = await addComment({
       applicationId: application.id,
       questionId: video.questionId,
@@ -31,7 +31,8 @@ const Application = ({ video, questions, application }) => {
       // show some indication that comment was saved
       setShowSaveButton(false);
     }
-  };
+  }; //, [application.id, video.questionId, comment]);
+
   return (
     <Accordion disableGutters elevation={0} data-cy-testid="application">
       <AccordionSummary
@@ -80,4 +81,4 @@ const Application = ({ video, questions, application }) => {
     </Accordion>
   );
 };
-export default Application;
+export default Answer;

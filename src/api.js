@@ -21,18 +21,17 @@ export const getQuestions = async () => {
   return questionsRes.json();
 };
 
-// assumming Id is unique
 export const getApplication = async (applicationId) => {
   if (applicationId) {
     const applicationRes = await fetch(
       `${process.env.NEXT_PUBLIC_API_PROXY_URL}/api/applications/${applicationId}`,
       options
     );
-    return await applicationRes.json();
+    return applicationRes.json();
   }
   return null;
 };
-// Race condition possible
+// Race condition possible if multiple users were to save the same comment at one time
 export const addComment = async ({ applicationId, questionId, comment }) => {
   try {
     const applicationToUpdateRes = await fetch(
@@ -47,7 +46,7 @@ export const addComment = async ({ applicationId, questionId, comment }) => {
 
     applicationToUpdate.videos[videoIndex] = {
       ...applicationToUpdate.videos[videoIndex],
-      comments: comment, // this should be an array of strings
+      comments: comment, // this should be an array of strings but I don't want to change db schema
     };
 
     const updateRes = await fetch(
@@ -59,7 +58,7 @@ export const addComment = async ({ applicationId, questionId, comment }) => {
       }
     );
 
-    return await updateRes.json();
+    return updateRes.json();
   } catch (e) {
     console.log("e :", e);
     // send message to frontend to display error

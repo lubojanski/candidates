@@ -1,4 +1,4 @@
-import { Card, Paper, Typography } from "@mui/material";
+import { Button, Card, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Link from "next/link";
 import { useContext } from "react";
@@ -26,7 +26,8 @@ const Candidates = ({ candidates }) => {
         })}
       >
         {candidates.map((candidate) => (
-          <Box
+          <Button
+            fullWidth
             data-cy-testid="candidate"
             key={candidate.id}
             sx={{
@@ -42,7 +43,7 @@ const Candidates = ({ candidates }) => {
             onClick={() => candidateContext.setCandidate(candidate)}
           >
             <Typography>{candidate.name}</Typography>
-          </Box>
+          </Button>
         ))}
       </Box>
     </Paper>

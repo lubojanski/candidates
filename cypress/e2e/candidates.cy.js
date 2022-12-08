@@ -57,5 +57,8 @@ describe("Candidates List", () => {
     // can see candidate without applicaiton
     cy.contains(USER_WITHOUT_APPLICATION).click();
     cy.get(detailsSelector).contains(USER_WITHOUT_APPLICATION);
+    cy.get(detailsSelector).contains(
+      "Candidate didn't submit application yet."
+    );
   });
 });
