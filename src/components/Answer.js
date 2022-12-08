@@ -18,7 +18,7 @@ const Answer = ({ video, questions, application }) => {
     setComment(e.target.value);
   };
 
-  const saveComment = /*   */ async () => {
+  const saveComment = useCallback(async () => {
     const res = await addComment({
       applicationId: application.id,
       questionId: video.questionId,
@@ -31,7 +31,7 @@ const Answer = ({ video, questions, application }) => {
       // show some indication that comment was saved
       setShowSaveButton(false);
     }
-  }; //, [application.id, video.questionId, comment]);
+  }, [application.id, video.questionId, comment]);
 
   return (
     <Accordion disableGutters elevation={0} data-cy-testid="application">
