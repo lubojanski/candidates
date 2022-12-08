@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { Fragment, useContext, useEffect } from "react";
-import useSWR from "swr";
 import { CandidateContext } from "../../pages";
 import { getApplication } from "../api";
 import { Play } from "@next/font/google";
