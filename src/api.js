@@ -60,7 +60,6 @@ export const addComment = async ({ applicationId, questionId, comment }) => {
 
     return updateRes.json();
   } catch (e) {
-    console.log("e :", e);
     // send message to frontend to display error
     return { message: "Failed to save comment" };
   }

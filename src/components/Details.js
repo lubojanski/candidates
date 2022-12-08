@@ -12,7 +12,6 @@ const Details = ({ questions }) => {
   useEffect(() => {
     async function _getApplication() {
       const app = await getApplication(candidate.applicationId);
-      console.log("app :", app);
       setApplication(app);
     }
     if (candidate?.applicationId) {
